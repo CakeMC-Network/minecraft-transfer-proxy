@@ -1,0 +1,6 @@
+credentials.properties
+.gradle/
+.idea/
+.vscode/
+build/
+out/
