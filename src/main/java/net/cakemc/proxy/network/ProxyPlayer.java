@@ -12,8 +12,6 @@ import net.cakemc.protocol.api.player.PlayerConnection;
 import net.cakemc.protocol.api.protocol.AbstractProtocol;
 import net.cakemc.protocol.impl.MinecraftProtocol;
 import net.cakemc.protocol.impl.network.CodecOrder;
-import net.cakemc.protocol.impl.network.codec.compression.CompressionDecoder;
-import net.cakemc.protocol.impl.network.codec.compression.CompressionEncoder;
 import net.cakemc.protocol.impl.network.codec.crypt.PacketDecryption;
 import net.cakemc.protocol.impl.network.codec.crypt.PacketEncryption;
 import net.cakemc.protocol.impl.packets.client.impl.ClientDisconnectPacket;
@@ -119,19 +117,19 @@ public class ProxyPlayer extends SimpleChannelInboundHandler<AbstractPacket> imp
      * Sets compression handler.
      */
     public void setCompressionHandler() {
-		if (!checkChannelUsability())
-			return;
-		// COMP_DECODER -> COMP_ENCODER -> PACKET ...
-		channel.pipeline().addBefore(
-			 CodecOrder.MINECRAFT_DECODER.getHandlerName(),
-			 CodecOrder.COMPRESSION_ENCODER.getHandlerName(),
-			 new CompressionEncoder()
-		);
-		channel.pipeline().addBefore(
-			 CodecOrder.ENCRYPTION_ENCODER.getHandlerName(),
-			 CodecOrder.COMPRESSION_DECODER.getHandlerName(),
-			 new CompressionDecoder()
-		);
+		//if (!checkChannelUsability())
+		//	return;
+		//// COMP_DECODER -> COMP_ENCODER -> PACKET ...
+		//channel.pipeline().addBefore(
+		//	 CodecOrder.MINECRAFT_DECODER.getHandlerName(),
+		//	 CodecOrder.COMPRESSION_ENCODER.getHandlerName(),
+		//	 new CompressionEncoder()
+		//);
+		//channel.pipeline().addBefore(
+		//	 CodecOrder.ENCRYPTION_ENCODER.getHandlerName(),
+		//	 CodecOrder.COMPRESSION_DECODER.getHandlerName(),
+		//	 new CompressionDecoder()
+		//);
 	}
 
 	@Override
@@ -147,8 +145,33 @@ public class ProxyPlayer extends SimpleChannelInboundHandler<AbstractPacket> imp
 		});
 	}
 
+	@Override
+	public void handleLogin(AbstractPacket abstractPacket) {
 
-    /**
+	}
+
+	@Override
+	public void handleStatus(AbstractPacket abstractPacket) {
+
+	}
+
+	@Override
+	public void handleConfiguration(AbstractPacket abstractPacket) {
+
+	}
+
+	@Override
+	public void handleIntent(AbstractPacket abstractPacket) {
+
+	}
+
+	@Override
+	public void sendConfiguration() {
+
+	}
+
+
+	/**
      * Check channel usability boolean.
      *
      * @return the boolean
