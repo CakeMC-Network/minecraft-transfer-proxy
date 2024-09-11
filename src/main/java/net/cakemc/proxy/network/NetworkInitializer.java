@@ -4,7 +4,7 @@ import io.netty.channel.Channel;
 import io.netty.channel.ChannelInitializer;
 import io.netty.channel.ChannelPipeline;
 import io.netty.handler.timeout.ReadTimeoutHandler;
-import net.cakemc.library.game.event.EventManager;
+import net.cakemc.mc.lib.game.event.EventManager;
 import net.cakemc.protocol.impl.MinecraftProtocol;
 import net.cakemc.protocol.impl.network.CodecOrder;
 import net.cakemc.protocol.impl.network.codec.framing.FrameDecoder;

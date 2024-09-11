@@ -1,6 +1,6 @@
 package net.cakemc.proxy;
 
-import net.cakemc.library.game.event.EventManager;
+import net.cakemc.mc.lib.game.event.EventManager;
 
 /**
  * The type Abstract proxy server.

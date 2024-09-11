@@ -1,9 +1,9 @@
 package net.cakemc.proxy.events;
 
-import net.cakemc.library.game.Status;
-import net.cakemc.library.game.Status.Info;
-import net.cakemc.library.game.event.AbstractEvent;
-import net.cakemc.library.game.event.Cancelable;
+import net.cakemc.mc.lib.game.Status;
+import net.cakemc.mc.lib.game.Status.Info;
+import net.cakemc.mc.lib.game.event.AbstractEvent;
+import net.cakemc.mc.lib.game.event.Cancelable;
 
 import java.util.Objects;
 

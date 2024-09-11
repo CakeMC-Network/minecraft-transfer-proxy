@@ -1,8 +1,8 @@
 package net.cakemc.proxy.events;
 
-import net.cakemc.library.game.event.AbstractEvent;
-import net.cakemc.library.game.event.Cancelable;
-import net.cakemc.library.game.text.test.api.chat.BaseComponent;
+import net.cakemc.mc.lib.game.event.AbstractEvent;
+import net.cakemc.mc.lib.game.event.Cancelable;
+import net.cakemc.mc.lib.game.text.test.api.chat.BaseComponent;
 import net.cakemc.proxy.network.ProxyPlayer;
 
 import java.util.Objects;

@@ -1,6 +1,6 @@
 package net.cakemc.proxy.network;
 
-import net.cakemc.library.network.AbstractPacket;
+import net.cakemc.mc.lib.network.AbstractPacket;
 
 /**
  * The type Player network handler.

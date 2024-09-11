@@ -1,6 +1,6 @@
 package net.cakemc.proxy;
 
-import net.cakemc.library.game.event.EventManager;
+import net.cakemc.mc.lib.game.event.EventManager;
 import net.cakemc.protocol.impl.MinecraftProtocol;
 import net.cakemc.proxy.network.NetworkServer;
 

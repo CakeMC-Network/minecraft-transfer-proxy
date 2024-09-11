@@ -16,18 +16,19 @@ plugins {
 group = "net.cakemc.mc"
 version = "0.0.0-develop"
 
+
 val repoProperties = Properties()
-val repoFile = file("credentials.properties")
+val repoFile = file("/credentials.properties")
 if (repoFile.exists())
   repoProperties.load(repoFile.inputStream())
 val repoUsername: String = (repoProperties["username"] ?: System.getenv("REPOSITORY_USERNAME")).toString()
 val repoPassword: String = (repoProperties["password"] ?: System.getenv("REPOSITORY_PASSWORD")).toString()
 
 repositories {
-  mavenCentral()
   mavenLocal()
+  mavenCentral()
   maven {
-    name = "cakemc"
+    name = "cakemc-nexus"
     url = URI.create("http://cakemc.net:8081/repository/maven-releases")
     credentials {
       username = repoUsername
@@ -42,41 +43,24 @@ fun <V> prop(value: String): V {
   return properties.getValue(value) as V
 }
 
-publishing {
-  publications.create<MavenPublication>(rootProject.name) {
-    artifact(tasks.shadowJar)
-  }
-  repositories {
-    maven {
-      name = "cakemc"
-      url = URI.create("http://cakemc.net:8081/repository/maven-releases")
-      credentials {
-        username = repoUsername
-        password = repoPassword
-      }
-      isAllowInsecureProtocol = true
-    }
-  }
-}
-
 dependencies {
   implementation(
-    group = "net.cakemc.mc",
+    group = "net.cakemc.mc.server",
     name = "lib",
     version = "0.0.0-develop"
   )
   shadow(
-    group = "net.cakemc.mc",
+    group = "net.cakemc.mc.server",
     name = "lib",
     version = "0.0.0-develop"
   )
   implementation(
-    group = "net.cakemc.mc",
+    group = "net.cakemc.mc.server",
     name = "protocol",
     version = "0.0.0-develop"
   )
   shadow(
-    group = "net.cakemc.mc",
+    group = "net.cakemc.mc.server",
     name = "protocol",
     version = "0.0.0-develop"
   )
@@ -343,44 +327,15 @@ tasks.withType<ShadowJar> {
 
 configurations.shadow { isTransitive = false }
 
+
 publishing {
-  publications {
-    create<MavenPublication>("mavenCakeNexus") {
-      from(components["java"])
-      artifact(tasks.shadowJar)
-
-      groupId = group.toString()
-      artifactId = "proxy"
-      version = version
-
-      pom {
-        name.set("CakeMc minecraft proxy")
-        description.set("The proxy of our server.")
-        url.set("https://github.com/CakeMC-Network/minecraft-proxy")
-        licenses {
-          license {
-            name.set("Apache-2.0")
-            url.set("https://www.apache.org/licenses/LICENSE-2.0")
-          }
-        }
-        developers {
-          developer {
-            id.set("CakeMcNET")
-            name.set("CakeMc")
-          }
-        }
-        scm {
-          connection = "scm:git:git://github.com/CakeMC-Network/minecraft-proxy.git"
-          developerConnection = "scm:git:ssh://github.com/CakeMC-Network/minecraft-proxy.git"
-          url = "github.com/CakeMC-Network/minecraft-proxy"
-        }
-      }
-    }
+  publications.create<MavenPublication>(rootProject.name) {
+    artifact(tasks.shadowJar)
   }
   repositories {
     maven {
-      name = "cakemc-nexus"
-      url = uri("http://cakemc.net:8081/")
+      name = "cakemc"
+      url = URI.create("http://cakemc.net:8081/repository/maven-releases")
       credentials {
         username = repoUsername
         password = repoPassword
@@ -389,3 +344,51 @@ publishing {
     }
   }
 }
+
+
+//publishing {
+//  publications {
+//    create<MavenPublication>("mavenCakeNexus") {
+//      from(components["java"])
+//      artifact(tasks.shadowJar)
+//
+//      groupId = group.toString()
+//      artifactId = "proxy"
+//      version = version
+//
+//      pom {
+//        name.set("CakeMc minecraft proxy")
+//        description.set("The proxy of our server.")
+//        url.set("https://github.com/CakeMC-Network/minecraft-proxy")
+//        licenses {
+//          license {
+//            name.set("Apache-2.0")
+//            url.set("https://www.apache.org/licenses/LICENSE-2.0")
+//          }
+//        }
+//        developers {
+//          developer {
+//            id.set("CakeMcNET")
+//            name.set("CakeMc")
+//          }
+//        }
+//        scm {
+//          connection = "scm:git:git://github.com/CakeMC-Network/minecraft-proxy.git"
+//          developerConnection = "scm:git:ssh://github.com/CakeMC-Network/minecraft-proxy.git"
+//          url = "github.com/CakeMC-Network/minecraft-proxy"
+//        }
+//      }
+//    }
+//  }
+//  repositories {
+//    maven {
+//      name = "cakemc-nexus"
+//      url = uri("http://cakemc.net:8081/")
+//      credentials {
+//        username = repoUsername
+//        password = repoPassword
+//      }
+//      isAllowInsecureProtocol = true
+//    }
+//  }
+//}

@@ -1,11 +1,11 @@
 package net.cakemc.proxy.network.handler;
 
-import net.cakemc.library.game.PlayerProfile;
-import net.cakemc.library.game.Status;
-import net.cakemc.library.game.text.rewrite.TextBuilder;
-import net.cakemc.library.game.text.test.api.ChatColor;
-import net.cakemc.library.game.text.test.api.chat.TextComponent;
-import net.cakemc.library.network.AbstractPacket;
+import net.cakemc.mc.lib.game.PlayerProfile;
+import net.cakemc.mc.lib.game.Status;
+import net.cakemc.mc.lib.game.text.rewrite.TextBuilder;
+import net.cakemc.mc.lib.game.text.test.api.ChatColor;
+import net.cakemc.mc.lib.game.text.test.api.chat.TextComponent;
+import net.cakemc.mc.lib.network.AbstractPacket;
 import net.cakemc.protocol.api.auth.AuthService;
 import net.cakemc.protocol.api.protocol.AbstractProtocol;
 import net.cakemc.protocol.impl.network.codec.crypt.CryptUnits;
