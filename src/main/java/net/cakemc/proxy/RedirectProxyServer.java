@@ -3,6 +3,7 @@ package net.cakemc.proxy;
 import net.cakemc.mc.lib.game.event.EventManager;
 import net.cakemc.protocol.impl.MinecraftProtocol;
 import net.cakemc.proxy.network.NetworkServer;
+import net.cakemc.screensystem.logging.Logger;
 
 import java.io.IOException;
 
@@ -36,6 +37,11 @@ public final class RedirectProxyServer extends AbstractProxyServer {
 	private final int port;
 	private final String identifier;
 	private final EventManager eventManager;
+
+	@Override
+	public Logger getLogger() {
+		return Logger.SERVICE_LOGGER.supply(RedirectProxyServer.class);
+	}
 
 	/**
 	 * Instantiates a new Redirect proxy server.
