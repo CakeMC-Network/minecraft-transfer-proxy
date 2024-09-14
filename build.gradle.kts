@@ -299,6 +299,19 @@ dependencies {
     name = "netty-handler-proxy",
     version = prop("dep-netty")
   )
+
+  implementation(
+    group = "net.cakemc.util",
+    name = "screen-system",
+    version = "0.0.0-develop",
+    classifier = "all"
+  )
+  shadow(
+    group = "net.cakemc.util",
+    name = "screen-system",
+    version = "0.0.0-develop",
+    classifier = "all"
+  )
 }
 
 val jdkVersion = JavaVersion.VERSION_21

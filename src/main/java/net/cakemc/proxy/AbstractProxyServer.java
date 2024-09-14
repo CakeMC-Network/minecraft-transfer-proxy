@@ -1,11 +1,12 @@
 package net.cakemc.proxy;
 
 import net.cakemc.mc.lib.game.event.EventManager;
+import net.cakemc.screensystem.ScreenAbleObject;
 
 /**
  * The type Abstract proxy server.
  */
-public abstract class AbstractProxyServer {
+public abstract class AbstractProxyServer implements ScreenAbleObject {
     /**
      * Start.
      */
