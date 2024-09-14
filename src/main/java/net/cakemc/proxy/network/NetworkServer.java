@@ -2,14 +2,17 @@ package net.cakemc.proxy.network;
 
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.buffer.PooledByteBufAllocator;
-import io.netty.channel.*;
+import io.netty.channel.ChannelFuture;
+import io.netty.channel.ChannelOption;
+import io.netty.channel.EventLoopGroup;
+import io.netty.channel.ServerChannel;
 import io.netty.channel.epoll.Epoll;
-import io.netty.channel.epoll.EpollIoHandler;
+import io.netty.channel.epoll.EpollEventLoopGroup;
 import io.netty.channel.epoll.EpollServerSocketChannel;
 import io.netty.channel.kqueue.KQueue;
-import io.netty.channel.kqueue.KQueueIoHandler;
+import io.netty.channel.kqueue.KQueueEventLoopGroup;
 import io.netty.channel.kqueue.KQueueServerSocketChannel;
-import io.netty.channel.nio.NioIoHandler;
+import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
 import net.cakemc.mc.lib.game.event.EventManager;
 import net.cakemc.protocol.impl.MinecraftProtocol;
@@ -81,10 +84,9 @@ public class NetworkServer {
 
 		this.networkInitializer = new NetworkInitializer(protocol, eventManager);
 
-		IoHandlerFactory ioHandlerFactory = EPOLL ? (KQUEUE ? KQueueIoHandler.newFactory() : EpollIoHandler.newFactory()) : NioIoHandler.newFactory();
-		this.bossGroup = new MultiThreadIoEventLoopGroup(ioHandlerFactory);
-		this.workerGroup = new MultiThreadIoEventLoopGroup(ioHandlerFactory);
-		this.channel = EPOLL ? (KQUEUE ? KQueueServerSocketChannel.class : EpollServerSocketChannel.class) : NioServerSocketChannel.class;
+	    this.bossGroup = EPOLL ? (KQUEUE ? new KQueueEventLoopGroup() : new EpollEventLoopGroup()) : new NioEventLoopGroup();
+	    this.workerGroup = EPOLL ? (KQUEUE ? new KQueueEventLoopGroup() : new EpollEventLoopGroup()) : new NioEventLoopGroup();
+	    this.channel = EPOLL ? (KQUEUE ? KQueueServerSocketChannel.class : EpollServerSocketChannel.class) : NioServerSocketChannel.class;
 
 
 	}
