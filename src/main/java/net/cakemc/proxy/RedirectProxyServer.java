@@ -37,10 +37,11 @@ public final class RedirectProxyServer extends AbstractProxyServer {
 	private final int port;
 	private final String identifier;
 	private final EventManager eventManager;
+	private final Logger logger;
 
 	@Override
 	public Logger getLogger() {
-		return Logger.SERVICE_LOGGER.supply(RedirectProxyServer.class);
+		return logger;
 	}
 
 	/**
@@ -54,6 +55,7 @@ public final class RedirectProxyServer extends AbstractProxyServer {
 		this.host = host;
 		this.port = port;
 		this.identifier = identifier;
+		this.logger = Logger.SERVICE_LOGGER.supply(RedirectProxyServer.class);
 
 		eventManager = new EventManager();
 	}
