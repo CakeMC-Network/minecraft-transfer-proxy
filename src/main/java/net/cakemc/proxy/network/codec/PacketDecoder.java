@@ -5,7 +5,7 @@ import io.netty.channel.ChannelHandlerContext;
 import io.netty.handler.codec.ByteToMessageDecoder;
 import io.netty.handler.codec.DecoderException;
 import net.cakemc.mc.lib.network.AbstractPacket;
-import net.cakemc.protocol.api.packets.AbstractPacketRegistry;
+import net.cakemc.proxy.protocol.api.packets.AbstractPacketRegistry;
 import net.cakemc.proxy.network.ProxyPlayer;
 
 import java.util.List;

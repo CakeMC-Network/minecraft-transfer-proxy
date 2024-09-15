@@ -25,8 +25,8 @@ val repoUsername: String = (repoProperties["username"] ?: System.getenv("REPOSIT
 val repoPassword: String = (repoProperties["password"] ?: System.getenv("REPOSITORY_PASSWORD")).toString()
 
 repositories {
-  mavenLocal()
   mavenCentral()
+
   maven {
     name = "cakemc-nexus"
     url = URI.create("http://cakemc.net:8081/repository/maven-releases")
@@ -46,23 +46,15 @@ fun <V> prop(value: String): V {
 dependencies {
   implementation(
     group = "net.cakemc.mc.server",
-    name = "lib",
-    version = "0.0.0-develop"
+    name = "module-lib",
+    version = "0.0.0-develop",
+    classifier = "all"
   )
   shadow(
     group = "net.cakemc.mc.server",
-    name = "lib",
-    version = "0.0.0-develop"
-  )
-  implementation(
-    group = "net.cakemc.mc.server",
-    name = "protocol",
-    version = "0.0.0-develop"
-  )
-  shadow(
-    group = "net.cakemc.mc.server",
-    name = "protocol",
-    version = "0.0.0-develop"
+    name = "module-lib",
+    version = "0.0.0-develop",
+    classifier = "all"
   )
 
   annotationProcessor(

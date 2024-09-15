@@ -6,11 +6,11 @@ import net.cakemc.mc.lib.game.text.rewrite.TextBuilder;
 import net.cakemc.mc.lib.game.text.test.api.ChatColor;
 import net.cakemc.mc.lib.game.text.test.api.chat.TextComponent;
 import net.cakemc.mc.lib.network.AbstractPacket;
-import net.cakemc.protocol.api.auth.AuthService;
-import net.cakemc.protocol.api.protocol.AbstractProtocol;
-import net.cakemc.protocol.impl.network.codec.crypt.CryptUnits;
-import net.cakemc.protocol.impl.packets.client.impl.*;
-import net.cakemc.protocol.impl.packets.server.impl.*;
+import net.cakemc.proxy.protocol.api.auth.AuthService;
+import net.cakemc.proxy.protocol.api.protocol.AbstractProtocol;
+import net.cakemc.proxy.protocol.impl.network.codec.crypt.CryptUnits;
+import net.cakemc.proxy.protocol.impl.packets.client.impl.*;
+import net.cakemc.proxy.protocol.impl.packets.server.impl.*;
 import net.cakemc.proxy.RedirectProxyServer;
 import net.cakemc.proxy.events.ProxyRedirectEvent;
 import net.cakemc.proxy.events.ProxyStatusEvent;
@@ -45,8 +45,8 @@ public class PlayerLoginHandler extends PlayerNetworkHandler {
 
     @Override
     public void initialize() {
-        this.pass = net.cakemc.protocol.impl.network.codec.crypt.CryptUnits.generatePass();
-        this.keyPair = net.cakemc.protocol.impl.network.codec.crypt.CryptUnits.generateKeyPair();
+        this.pass = net.cakemc.proxy.protocol.impl.network.codec.crypt.CryptUnits.generatePass();
+        this.keyPair = net.cakemc.proxy.protocol.impl.network.codec.crypt.CryptUnits.generateKeyPair();
     }
 
     @Override

@@ -4,8 +4,8 @@ import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.handler.codec.MessageToByteEncoder;
 import net.cakemc.mc.lib.network.AbstractPacket;
-import net.cakemc.protocol.api.packets.AbstractPacketRegistry;
-import net.cakemc.protocol.impl.packets.server.impl.ClientIntentionPacket;
+import net.cakemc.proxy.protocol.api.packets.AbstractPacketRegistry;
+import net.cakemc.proxy.protocol.impl.packets.server.impl.ClientIntentionPacket;
 import net.cakemc.proxy.network.ProxyPlayer;
 
 /**

@@ -12,7 +12,7 @@ import io.netty.channel.kqueue.KQueueServerSocketChannel;
 import io.netty.channel.nio.NioIoHandler;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
 import net.cakemc.mc.lib.game.event.EventManager;
-import net.cakemc.protocol.impl.MinecraftProtocol;
+import net.cakemc.proxy.protocol.impl.MinecraftProtocol;
 
 /**
  * The type Network server.
