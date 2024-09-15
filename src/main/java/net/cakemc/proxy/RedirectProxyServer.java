@@ -68,8 +68,7 @@ public final class RedirectProxyServer extends AbstractProxyServer {
 	}
 
 	@Override public void close() {
-		this.networkServer.getBossGroup().close();
-		this.networkServer.getWorkerGroup().close();
+		this.networkServer.stop();
 	}
 
 	@Override public EventManager getEventManager() {
