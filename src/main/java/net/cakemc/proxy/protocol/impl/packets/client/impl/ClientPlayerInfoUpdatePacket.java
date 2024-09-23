@@ -3,10 +3,9 @@ package net.cakemc.proxy.protocol.impl.packets.client.impl;
 import io.netty.buffer.ByteBuf;
 import net.cakemc.mc.lib.game.PlayerProfile;
 import net.cakemc.mc.lib.game.PlayerProfile.Property;
-import net.cakemc.mc.lib.game.entity.player.AbstractPlayer;
-import net.cakemc.mc.lib.game.entity.player.AbstractPlayer.GameMode;
-import net.cakemc.mc.lib.game.entity.player.AbstractPlayer.ListEntry;
-import net.cakemc.mc.lib.game.entity.player.AbstractPlayer.ListEntry.Action;
+import net.cakemc.mc.lib.game.entity.player.GameMode;
+import net.cakemc.mc.lib.game.entity.player.ListEntry;
+import net.cakemc.mc.lib.game.entity.player.ListEntry.Action;
 import net.cakemc.mc.lib.game.text.test.api.chat.BaseComponent;
 import net.cakemc.mc.lib.network.AbstractPacket;
 

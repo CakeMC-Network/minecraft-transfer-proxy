@@ -1,7 +1,7 @@
 package net.cakemc.proxy.protocol.impl.packets.server.impl;
 
 import io.netty.buffer.ByteBuf;
-import net.cakemc.mc.lib.game.entity.player.AbstractPlayer.ClientCommand;
+import net.cakemc.mc.lib.game.entity.player.ClientCommand;
 import net.cakemc.mc.lib.network.AbstractPacket;
 
 public class ServerClientCommandPacket extends AbstractPacket {

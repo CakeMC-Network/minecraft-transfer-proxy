@@ -1,7 +1,7 @@
 package net.cakemc.proxy.protocol.impl.packets.client.impl.level;
 
 import io.netty.buffer.ByteBuf;
-import net.cakemc.mc.lib.game.entity.player.AbstractPlayer.GameMode;
+import net.cakemc.mc.lib.game.entity.player.GameMode;
 import net.cakemc.mc.lib.game.entity.player.notify.Value;
 import net.cakemc.mc.lib.game.entity.player.notify.Value.Type;
 import net.cakemc.mc.lib.game.entity.player.notify.impl.*;

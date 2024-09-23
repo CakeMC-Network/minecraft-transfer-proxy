@@ -2,7 +2,7 @@ package net.cakemc.proxy.protocol.impl.packets.client.impl;
 
 import io.netty.buffer.ByteBuf;
 import net.cakemc.mc.lib.game.entity.EntityType;
-import net.cakemc.mc.lib.game.entity.player.AbstractPlayer.Statistic;
+import net.cakemc.mc.lib.game.entity.player.Statistic;
 import net.cakemc.mc.lib.game.statistic.*;
 import net.cakemc.mc.lib.network.AbstractPacket;
 

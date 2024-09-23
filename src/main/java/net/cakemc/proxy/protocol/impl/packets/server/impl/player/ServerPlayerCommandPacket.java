@@ -1,15 +1,16 @@
 package net.cakemc.proxy.protocol.impl.packets.server.impl.player;
 
 import io.netty.buffer.ByteBuf;
-import net.cakemc.mc.lib.game.entity.player.AbstractPlayer.State;
+
+import net.cakemc.mc.lib.game.entity.player.PlayerState;
 import net.cakemc.mc.lib.network.AbstractPacket;
 
 public class ServerPlayerCommandPacket extends AbstractPacket {
 	private int entityId;
-	private State state;
+	private PlayerState state;
 	private int jumpBoost;
 
-	public ServerPlayerCommandPacket(int entityId, State state, int jumpBoost) {
+	public ServerPlayerCommandPacket(int entityId, PlayerState state, int jumpBoost) {
 		this.entityId = entityId;
 		this.state = state;
 		this.jumpBoost = jumpBoost;
@@ -21,7 +22,7 @@ public class ServerPlayerCommandPacket extends AbstractPacket {
 	@Override
 	public void read(ByteBuf buf) {
 		this.entityId = readVarInt(buf);
-		this.state = State.values()[readVarInt(buf)];
+		this.state = PlayerState.values()[readVarInt(buf)];
 		this.jumpBoost = readVarInt(buf);
 	}
 
@@ -40,11 +41,11 @@ public class ServerPlayerCommandPacket extends AbstractPacket {
 		this.entityId = entityId;
 	}
 
-	public State getState() {
+	public PlayerState getState() {
 		return state;
 	}
 
-	public void setState(State state) {
+	public void setState(PlayerState state) {
 		this.state = state;
 	}
 

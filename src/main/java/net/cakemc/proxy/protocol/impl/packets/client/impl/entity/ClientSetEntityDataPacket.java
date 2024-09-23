@@ -1,7 +1,7 @@
 package net.cakemc.proxy.protocol.impl.packets.client.impl.entity;
 
 import io.netty.buffer.ByteBuf;
-import net.cakemc.mc.lib.game.entity.AbstractEntity.Pose;
+import net.cakemc.mc.lib.game.entity.Pose;
 import net.cakemc.mc.lib.game.entity.metadata.EntityMetaDataChanges;
 import net.cakemc.mc.lib.game.entity.metadata.MetaDataEntry;
 import net.cakemc.mc.lib.game.inventory.item.ItemStack;

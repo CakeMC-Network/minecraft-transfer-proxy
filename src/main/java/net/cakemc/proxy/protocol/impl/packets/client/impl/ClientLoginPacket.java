@@ -1,7 +1,7 @@
 package net.cakemc.proxy.protocol.impl.packets.client.impl;
 
 import io.netty.buffer.ByteBuf;
-import net.cakemc.mc.lib.game.entity.player.AbstractPlayer.GameMode;
+import net.cakemc.mc.lib.game.entity.player.GameMode;
 import net.cakemc.mc.lib.network.AbstractPacket;
 import net.cakemc.mc.lib.world.NamedPosition;
 

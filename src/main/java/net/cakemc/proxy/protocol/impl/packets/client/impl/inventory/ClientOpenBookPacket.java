@@ -1,8 +1,7 @@
 package net.cakemc.proxy.protocol.impl.packets.client.impl.inventory;
 
 import io.netty.buffer.ByteBuf;
-import net.cakemc.mc.lib.game.entity.player.AbstractPlayer.Hand;
-import net.cakemc.mc.lib.game.entity.player.AbstractPlayer.Hand.Type;
+import net.cakemc.mc.lib.game.entity.player.Hand.Type;
 import net.cakemc.mc.lib.network.AbstractPacket;
 
 public class ClientOpenBookPacket extends AbstractPacket {

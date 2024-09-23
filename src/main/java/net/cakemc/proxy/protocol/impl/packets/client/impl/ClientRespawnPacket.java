@@ -1,7 +1,7 @@
 package net.cakemc.proxy.protocol.impl.packets.client.impl;
 
 import io.netty.buffer.ByteBuf;
-import net.cakemc.mc.lib.game.entity.player.AbstractPlayer.PlayerSpawnInfo;
+import net.cakemc.mc.lib.game.entity.player.PlayerSpawnInfo;
 import net.cakemc.mc.lib.network.AbstractPacket;
 
 public class ClientRespawnPacket extends AbstractPacket {

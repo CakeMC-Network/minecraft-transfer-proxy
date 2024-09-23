@@ -1,7 +1,8 @@
 package net.cakemc.proxy.protocol.impl.packets.server.impl;
 
 import io.netty.buffer.ByteBuf;
-import net.cakemc.mc.lib.game.entity.player.AbstractPlayer;
+import net.cakemc.mc.lib.game.entity.player.Hand;
+import net.cakemc.mc.lib.game.entity.player.Settings;
 import net.cakemc.mc.lib.network.AbstractPacket;
 
 import java.util.ArrayList;
@@ -11,17 +12,17 @@ public class ServerClientInformationPacket extends AbstractPacket {
 
 	private String language;
 	private int renderDistance;
-	private AbstractPlayer.Settings.ChatVisibility chatVisibility;
+	private Settings.ChatVisibility chatVisibility;
 	private boolean chatColors;
-	private List<AbstractPlayer.Settings.SkinPart> skinParts;
-	private AbstractPlayer.Hand.Preference handPreference;
+	private List<Settings.SkinPart> skinParts;
+	private Hand.Preference handPreference;
 	private boolean textFiltering;
 	private boolean allowsListing;
 
 	public ServerClientInformationPacket(
 		 String language, int renderDistance,
-		 AbstractPlayer.Settings.ChatVisibility chatVisibility, boolean chatColors,
-		 List<AbstractPlayer.Settings.SkinPart> skinParts, AbstractPlayer.Hand.Preference handPreference,
+		 Settings.ChatVisibility chatVisibility, boolean chatColors,
+		 List<Settings.SkinPart> skinParts, Hand.Preference handPreference,
 		 boolean textFiltering, boolean allowsListing
 	) {
 		this.language = language;
@@ -41,12 +42,12 @@ public class ServerClientInformationPacket extends AbstractPacket {
 	public void read(ByteBuf buf) {
 		this.language = readString(buf);
 		this.renderDistance = buf.readByte();
-		this.chatVisibility = AbstractPlayer.Settings.ChatVisibility.values()[readVarInt(buf)];
+		this.chatVisibility = Settings.ChatVisibility.values()[readVarInt(buf)];
 		this.chatColors = buf.readBoolean();
 		this.skinParts = new ArrayList<>();
 
 		int skinFlags = buf.readUnsignedByte();
-		for (AbstractPlayer.Settings.SkinPart value : AbstractPlayer.Settings.SkinPart
+		for (Settings.SkinPart value : Settings.SkinPart
 			 .values()) {
 			int bit = 1 << value.ordinal();
 			if ((skinFlags & bit) == bit) {
@@ -54,7 +55,7 @@ public class ServerClientInformationPacket extends AbstractPacket {
 			}
 		}
 
-		this.handPreference = AbstractPlayer.Hand.Preference.values()[readVarInt(buf)];
+		this.handPreference = Hand.Preference.values()[readVarInt(buf)];
 		textFiltering = buf.readBoolean();
 		allowsListing = buf.readBoolean();
 	}
@@ -67,7 +68,7 @@ public class ServerClientInformationPacket extends AbstractPacket {
 		buf.writeBoolean(chatColors);
 
 		int flags = 0;
-		for (AbstractPlayer.Settings.SkinPart skinPart : this.skinParts) {
+		for (Settings.SkinPart skinPart : this.skinParts) {
 			flags |= 1 << skinPart.ordinal();
 		}
 
@@ -93,11 +94,11 @@ public class ServerClientInformationPacket extends AbstractPacket {
 		this.renderDistance = renderDistance;
 	}
 
-	public AbstractPlayer.Settings.ChatVisibility getChatVisibility() {
+	public Settings.ChatVisibility getChatVisibility() {
 		return chatVisibility;
 	}
 
-	public void setChatVisibility(AbstractPlayer.Settings.ChatVisibility chatVisibility) {
+	public void setChatVisibility(Settings.ChatVisibility chatVisibility) {
 		this.chatVisibility = chatVisibility;
 	}
 
@@ -109,19 +110,19 @@ public class ServerClientInformationPacket extends AbstractPacket {
 		this.chatColors = chatColors;
 	}
 
-	public List<AbstractPlayer.Settings.SkinPart> getSkinParts() {
+	public List<Settings.SkinPart> getSkinParts() {
 		return skinParts;
 	}
 
-	public void setSkinParts(List<AbstractPlayer.Settings.SkinPart> skinParts) {
+	public void setSkinParts(List<Settings.SkinPart> skinParts) {
 		this.skinParts = skinParts;
 	}
 
-	public AbstractPlayer.Hand.Preference getHandPreference() {
+	public Hand.Preference getHandPreference() {
 		return handPreference;
 	}
 
-	public void setHandPreference(AbstractPlayer.Hand.Preference handPreference) {
+	public void setHandPreference(Hand.Preference handPreference) {
 		this.handPreference = handPreference;
 	}
 

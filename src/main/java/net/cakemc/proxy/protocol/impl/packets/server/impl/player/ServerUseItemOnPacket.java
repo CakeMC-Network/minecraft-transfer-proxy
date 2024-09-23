@@ -1,8 +1,7 @@
 package net.cakemc.proxy.protocol.impl.packets.server.impl.player;
 
 import io.netty.buffer.ByteBuf;
-import net.cakemc.mc.lib.game.entity.player.AbstractPlayer.Hand;
-import net.cakemc.mc.lib.game.entity.player.AbstractPlayer.Hand.Type;
+import net.cakemc.mc.lib.game.entity.player.Hand.Type;
 import net.cakemc.mc.lib.network.AbstractPacket;
 import net.cakemc.mc.lib.world.Direction;
 import net.cakemc.mc.lib.world.WorldPosition;

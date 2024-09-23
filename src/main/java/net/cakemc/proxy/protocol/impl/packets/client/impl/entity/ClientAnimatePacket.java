@@ -1,7 +1,7 @@
 package net.cakemc.proxy.protocol.impl.packets.client.impl.entity;
 
 import io.netty.buffer.ByteBuf;
-import net.cakemc.mc.lib.game.entity.player.AbstractPlayer.Animation;
+import net.cakemc.mc.lib.game.entity.player.Animation;
 import net.cakemc.mc.lib.network.AbstractPacket;
 
 public class ClientAnimatePacket extends AbstractPacket {
