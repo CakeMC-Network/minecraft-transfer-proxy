@@ -13,7 +13,7 @@ plugins {
   id("com.gradleup.shadow") version "8.3.0"
 }
 
-group = "net.cakemc.mc"
+group = "net.cakemc.mc.proxy"
 version = "0.0.0-develop"
 
 
